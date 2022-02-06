@@ -7,8 +7,8 @@ import Brightness5TwoToneIcon from "@mui/icons-material/Brightness5TwoTone"
 import { light, dark, defaultPalette, defaultTypography } from "./theme"
 import { AppNavBar } from "./components/AppBar"
 import { BottomBar } from "./components/BottomBar"
-import { MainContentBox } from "./components/MainContentBox"
 import { motion } from "framer-motion"
+import { Content } from "./pages/Content"
 
 const ColorModeContext = createContext({ toggleColorMode: () => {} })
 
@@ -79,7 +79,9 @@ const App = (): JSX.Element => {
 				<Container disableGutters maxWidth={false}>
 					<Box sx={{ bgcolor: "background.default", height: "100vh" }}>
 						<AppNavBar mode={mode} />
-						<MainContentBox />
+
+						<Content mode={mode} />
+
 						<BottomBar />
 					</Box>
 				</Container>

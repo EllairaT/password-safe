@@ -4,9 +4,12 @@ import Typography from "@mui/material/Typography"
 import { Toggle } from "../app"
 import { LockIcon } from "./LockIcon"
 import { motion } from "framer-motion"
-import { Grid, AppBar, Box } from "@mui/material"
+import { Grid, AppBar, Box, Tooltip } from "@mui/material"
 
-export const AppNavBar = (props: { mode: string }): JSX.Element => {
+type Props = {
+	mode: string
+}
+export const AppNavBar = ({ mode }: Props): JSX.Element => {
 	return (
 		<Box sx={{ flexGrow: 1 }} bgcolor="primary.paper">
 			<AppBar position="static" color="transparent">
@@ -15,7 +18,7 @@ export const AppNavBar = (props: { mode: string }): JSX.Element => {
 						align="center"
 						variant="overline"
 						component="div"
-						color={props.mode === "light" ? "primary" : "secondary"}
+						color={mode === "light" ? "primary" : "secondary"}
 						sx={{
 							flexGrow: 1,
 							letterSpacing: 6,
@@ -24,21 +27,23 @@ export const AppNavBar = (props: { mode: string }): JSX.Element => {
 							textTransform: "lowercase",
 						}}>
 						<Grid container direction="row" alignItems="center" wrap="nowrap">
-							<Grid item container>
+							<Grid item container alignItems="center">
 								lock.i
 								<motion.div
 									whileHover={{ rotate: 360, transition: { duration: 0.5 } }}>
-									<LockIcon
-										mode={props.mode}
-										iconProps={{ fontSize: "small" }}
-									/>
+									<LockIcon mode={mode} iconProps={{ fontSize: "small" }} />
 								</motion.div>
 							</Grid>
 						</Grid>
 					</Typography>
-					<Box sx={{ flexGrow: 0 }}>
-						<Toggle />
-					</Box>
+					<Tooltip
+						title={
+							"Switch to " + (mode === "light" ? "dark" : "light") + " mode"
+						}>
+						<Box sx={{ flexGrow: 0 }}>
+							<Toggle />
+						</Box>
+					</Tooltip>
 				</Toolbar>
 			</AppBar>
 		</Box>
