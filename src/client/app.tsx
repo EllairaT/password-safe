@@ -1,47 +1,57 @@
-import * as React from "react"
-import IconButton from "@mui/material/IconButton"
-import Box from "@mui/material/Box"
-import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles"
-import Brightness4Icon from "@mui/icons-material/Brightness4"
-import Brightness7Icon from "@mui/icons-material/Brightness7"
-import Button from "@mui/material/Button"
+import React, { useState, useMemo, useContext, createContext } from "react"
 import ReactDOM from "react-dom"
-import { Grid } from "@mui/material"
+import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles"
+import { IconButton, Container, Box } from "@mui/material"
+import DarkModeTwoToneIcon from "@mui/icons-material/DarkModeTwoTone"
+import Brightness5TwoToneIcon from "@mui/icons-material/Brightness5TwoTone"
+import { light, dark, defaultPalette, defaultTypography } from "./theme"
+import { AppNavBar } from "./components/AppBar"
+import { BottomBar } from "./components/BottomBar"
+import { MainContentBox } from "./components/MainContentBox"
+import { motion } from "framer-motion"
 
-const ColorModeContext = React.createContext({ toggleColorMode: () => {} })
+const ColorModeContext = createContext({ toggleColorMode: () => {} })
 
-function App() {
+export const Toggle = (): JSX.Element => {
+	const [isOn, setIsOn] = useState(false)
+
+	const handleSwitch = () => {
+		colorMode.toggleColorMode()
+		setIsOn(!isOn)
+	}
+
+	const spring = {
+		type: "spring",
+		stiffness: 700,
+		damping: 30,
+	}
 	const theme = useTheme()
-	const colorMode = React.useContext(ColorModeContext)
+	const colorMode = useContext(ColorModeContext)
 	return (
-		<Box
-			sx={{
-				display: "flex",
-				width: "100%",
-				alignItems: "center",
-				justifyContent: "center",
-				bgcolor: "background.paper",
-				color: "text.primary",
-				borderRadius: 1,
-			}}>
-			{theme.palette.mode} mode
-			<IconButton
-				// sx={{ ml: 1 }}
-				onClick={colorMode.toggleColorMode}
-				color="inherit">
-				{theme.palette.mode === "dark" ? (
-					<Brightness7Icon />
-				) : (
-					<Brightness4Icon />
-				)}
-			</IconButton>
-		</Box>
+		<div className="switch" data-ison={isOn} onClick={handleSwitch}>
+			<motion.div className="handle" layout transition={spring}>
+				<IconButton
+					// className="handle"
+					color="inherit"
+					aria-label="toggle theme"
+					sx={{ align: "center", ml: "auto", p: 0, top: "auto" }}>
+					{theme.palette.mode === "dark" ? (
+						<DarkModeTwoToneIcon color="primary" sx={{ fontSize: "100%" }} />
+					) : (
+						<Brightness5TwoToneIcon
+							color="secondary"
+							sx={{ fontSize: "100%" }}
+						/>
+					)}
+				</IconButton>
+			</motion.div>
+		</div>
 	)
 }
 
-function ToggleColorMode() {
-	const [mode, setMode] = React.useState<"light" | "dark">("light")
-	const colorMode = React.useMemo(
+const App = (): JSX.Element => {
+	const [mode, setMode] = useState<"light" | "dark">("light")
+	const colorMode = useMemo(
 		() => ({
 			toggleColorMode: () => {
 				setMode((prevMode) => (prevMode === "light" ? "dark" : "light"))
@@ -50,45 +60,15 @@ function ToggleColorMode() {
 		[]
 	)
 
-	const light = {
-		background: {
-			default: "#fafafa",
-			paper: "#fff",
-		},
-	}
-
-	const dark = {
-		background: {
-			default: "#303030",
-			paper: "#424242",
-		},
-		text: {
-			primary: "#ffffff",
-		},
-	}
-
-	const theme = React.useMemo(
+	const theme = useMemo(
 		() =>
 			createTheme({
 				palette: {
 					mode,
 					...(mode === "light" ? light : dark),
-					primary: {
-						main: "#0e79b2",
-					},
-					secondary: {
-						main: "#bf1363",
-					},
-					warning: {
-						main: "#f39237",
-					},
-					info: {
-						main: "#2196f3",
-					},
-					success: {
-						main: "#4caf50",
-					},
+					...defaultPalette,
 				},
+				typography: defaultTypography,
 			}),
 		[mode]
 	)
@@ -96,14 +76,20 @@ function ToggleColorMode() {
 	return (
 		<ColorModeContext.Provider value={colorMode}>
 			<ThemeProvider theme={theme}>
-				<App />
+				<Container disableGutters maxWidth={false}>
+					<Box sx={{ bgcolor: "background.default", height: "100vh" }}>
+						<AppNavBar mode={mode} />
+						<MainContentBox />
+						<BottomBar />
+					</Box>
+				</Container>
 			</ThemeProvider>
 		</ColorModeContext.Provider>
 	)
 }
 
-function render() {
-	ReactDOM.render(<ToggleColorMode />, document.getElementById("root"))
+const render = () => {
+	ReactDOM.render(<App />, document.getElementById("root"))
 }
 
 render()

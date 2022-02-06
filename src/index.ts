@@ -16,6 +16,7 @@ const createWindow = (): BrowserWindow => {
 	const mainWindow = new BrowserWindow({
 		height: 600,
 		width: 800,
+		title: "lockio",
 		useContentSize: true,
 		autoHideMenuBar: true,
 		webPreferences: {
@@ -25,9 +26,10 @@ const createWindow = (): BrowserWindow => {
 
 	// and load the index.html of the app.
 	mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY)
+	// mainWindow.loadURL("https://github.com")
 
 	// Open the DevTools.
-	mainWindow.webContents.openDevTools()
+	// mainWindow.webContents.openDevTools()
 	return mainWindow
 }
 
