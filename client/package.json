@@ -2,7 +2,7 @@
 	"name": "password-safe",
 	"productName": "password-safe",
 	"version": "1.0.0",
-	"description": "My Electron application description",
+	"description": "Password safe",
 	"main": ".webpack/main",
 	"scripts": {
 		"start": "electron-forge start",
@@ -106,10 +106,10 @@
 		"@types/material-ui": "^0.21.12",
 		"custom-electron-titlebar": "^4.0.1",
 		"electron-squirrel-startup": "^1.0.0",
-		"express": "^4.17.2",
 		"framer-motion": "^6.2.4",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
+		"react-material-ui-carousel": "^3.1.1",
 		"react-router-dom": "^6.2.1"
 	}
 }
