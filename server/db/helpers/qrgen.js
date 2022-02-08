@@ -1,4 +1,5 @@
-const QRCode = require("qrcode")
+// const QRCode = require("qrcode")
+import * as QRCode from "qrcode"
 
 export const generateQR = async (text) => {
 	try {
@@ -8,4 +9,4 @@ export const generateQR = async (text) => {
 	}
 }
 
-generateQR("THIS IS A FUTURE LOCK.IO FEATURE :D")
+generateQR("I LOVE YOU")
