@@ -1,4 +1,3 @@
-// const QRCode = require("qrcode")
 import * as QRCode from "qrcode"
 
 export const generateQR = async (text) => {
@@ -9,4 +8,4 @@ export const generateQR = async (text) => {
 	}
 }
 
-generateQR("I LOVE YOU")
+generateQR("")

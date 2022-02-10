@@ -14,7 +14,9 @@ export const MainContentBox = ({ component }: ComponentProp): JSX.Element => {
 				m: "auto",
 				mt: 3,
 			}}>
-			<Paper elevation={6} sx={{ height: "100%", width: "100%" }}>
+			<Paper
+				elevation={6}
+				sx={{ height: "100%", width: "100%", padding: "10px" }}>
 				{component}
 			</Paper>
 		</Box>

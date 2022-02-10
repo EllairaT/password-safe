@@ -1,4 +1,5 @@
-const express = require("express")
+import express from "express"
+import vaultRouter from "./routes/vault.js"
 const app = express()
 
 const PORT = 3001
@@ -9,8 +10,10 @@ app.get("/", (req, res) => {
 })
 
 app.get("/test", (req, res) => {
-	res.status(200).json({ success: true })
+	res.send("Test page!")
 })
+
+app.use("/vault", vaultRouter)
 
 app.listen(PORT, () => {
 	console.log("Server is running 🔥")
