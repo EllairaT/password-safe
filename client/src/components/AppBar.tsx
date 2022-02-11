@@ -11,7 +11,15 @@ type Props = {
 }
 export const AppNavBar = ({ mode }: Props): JSX.Element => {
 	return (
-		<Box sx={{ flexGrow: 1 }} bgcolor="primary.paper">
+		<Box
+			sx={{
+				flexGrow: 1,
+				position: "static",
+				width: "100%",
+				height: "50%",
+				top: 0,
+			}}
+			bgcolor="primary.paper">
 			<AppBar position="static" color="transparent">
 				<Toolbar>
 					<Typography

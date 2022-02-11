@@ -76,14 +76,19 @@ const App = (): JSX.Element => {
 	return (
 		<ColorModeContext.Provider value={colorMode}>
 			<ThemeProvider theme={theme}>
-				<Container disableGutters maxWidth={false}>
-					<Box sx={{ bgcolor: "background.default", height: "100vh" }}>
-						<AppNavBar mode={mode} />
-
+				<Container
+					disableGutters
+					maxWidth={false}
+					sx={{ bgcolor: "background.default" }}>
+					<AppNavBar mode={mode} />
+					<Box
+						sx={{
+							minHeight: "100vh",
+							height: "max-content",
+						}}>
 						<Content mode={mode} />
-
-						<BottomBar />
 					</Box>
+					<BottomBar />
 				</Container>
 			</ThemeProvider>
 		</ColorModeContext.Provider>

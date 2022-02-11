@@ -6,6 +6,7 @@ import Carousel from "react-material-ui-carousel"
 import { MainContentBox } from "../components/MainContentBox"
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew"
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos"
+
 type Props = {
 	mode: string
 }

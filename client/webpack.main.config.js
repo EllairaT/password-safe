@@ -5,6 +5,7 @@ module.exports = {
 	 * that runs in the main process.
 	 */
 	entry: "./src/index.ts",
+
 	// Put your normal webpack config below here
 	target: "electron-main",
 	node: {
