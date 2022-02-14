@@ -1,5 +1,4 @@
 {
-	"css.lint.unknownAtRules": "ignore",
-	"reactSnippets.settings.prettierEnabled": true,
-	"reactSnippets.settings.semiColons": false
+	"material-icon-theme.activeIconPack": "react",
+	"editor.fontFamily": "Consolas, 'Courier New', monospace, 'Segoe UI Emoji'"
 }

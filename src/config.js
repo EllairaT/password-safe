@@ -1,0 +1,14 @@
+{
+  "development": {
+
+    "dialect": "mysql"
+  },
+  "test": {
+
+    "dialect": "mysql"
+  },
+  "production": {
+
+    "dialect": "mysql"
+  }
+}
