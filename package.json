@@ -52,11 +52,11 @@
 							"config": "./webpack.renderer.config.js",
 							"entryPoints": [
 								{
-									"html": "./src/index.html",
-									"js": "./src/renderer.ts",
+									"html": "./src/app/index.html",
+									"js": "./src/electron/renderer.ts",
 									"name": "main_window",
 									"preload": {
-										"js": "./src/preload.ts"
+										"js": "./src/electron/preload.ts"
 									}
 								}
 							]
@@ -122,6 +122,7 @@
 		"@mui/icons-material": "^5.3.1",
 		"@mui/material": "^5.4.0",
 		"@mui/styles": "^5.3.0",
+		"@types/bluebird": "^3.5.36",
 		"@types/body-parser": "^1.19.2",
 		"@types/material-ui": "^0.21.12",
 		"@types/qrcode": "^1.4.2",
@@ -129,7 +130,10 @@
 		"bcrypt": "^5.0.1",
 		"body-parser": "^1.19.1",
 		"concurrently": "^7.0.0",
+		"config": "^3.3.7",
 		"cors": "^2.8.5",
+		"dotenv": "^16.0.0",
+		"electron-json-storage": "^4.5.0",
 		"electron-log": "^4.4.6",
 		"electron-squirrel-startup": "^1.0.0",
 		"framer-motion": "^6.2.4",

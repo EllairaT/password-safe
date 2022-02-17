@@ -22,5 +22,5 @@
 			"*": ["node_modules/*"]
 		}
 	},
-	"include": ["src/**/*", "index.d.ts", "src/server", "renderer.d.ts"]
+	"include": ["src/**/*", "index.d.ts", "renderer.d.ts"]
 }

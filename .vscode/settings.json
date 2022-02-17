@@ -1,4 +1,10 @@
 {
+	"css.lint.unknownAtRules": "ignore",
 	"material-icon-theme.activeIconPack": "react",
-	"editor.fontFamily": "Consolas, 'Courier New', monospace, 'Segoe UI Emoji'"
+	"editor.fontFamily": "Consolas, 'Courier New', monospace, 'Segoe UI Emoji'",
+	"vim.easymotion": true,
+	"vim.incsearch": true,
+	"vim.useSystemClipboard": true,
+	"vim.useCtrlKeys": true,
+	"vim.hlsearch": true
 }

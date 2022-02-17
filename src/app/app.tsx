@@ -5,10 +5,10 @@ import { IconButton, Container, Box } from "@mui/material"
 import DarkModeTwoToneIcon from "@mui/icons-material/DarkModeTwoTone"
 import Brightness5TwoToneIcon from "@mui/icons-material/Brightness5TwoTone"
 import { light, dark, defaultPalette, defaultTypography } from "./theme"
-import { AppNavBar } from "./app/components/AppBar"
-import { BottomBar } from "./app/components/BottomBar"
+import { AppNavBar } from "./components/AppBar"
+import { BottomBar } from "./components/BottomBar"
 import { motion } from "framer-motion"
-import { Content } from "./app/pages/Content"
+import { Content } from "./pages/Content"
 
 const ColorModeContext = createContext({ toggleColorMode: () => {} })
 

@@ -1,7 +1,7 @@
 import React from "react"
 import Toolbar from "@mui/material/Toolbar"
 import Typography from "@mui/material/Typography"
-import { Toggle } from "../../app"
+import { Toggle } from "../app"
 import { LockIcon } from "./LockIcon"
 import { motion } from "framer-motion"
 import { Grid, AppBar, Box, Tooltip } from "@mui/material"
